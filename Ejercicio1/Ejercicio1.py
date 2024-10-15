@@ -1,8 +1,13 @@
 # -*- coding: latin-1 -*-
+abecedario = ("a","b","c","d","e","f","g","h","i","j","k","l","m","n","Ã±","o","p","q","r","s","t","u","v","w","x","y","z")
 def cifradoCesar(mensaje,clave):
-    abecedario = ("a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z")
-    
-    if mensaje == "patata" and clave == 3:
-        return "rcwcwc"
-    elif mensaje == patata and clave == 1:
-        return "qbubub"
+    result = ""
+    mensajeMinus = mensaje.lower()
+    for caracter in mensajeMinus:
+        if caracter not in abecedario:
+            result += caracter
+        else:
+            posicion = abecedario.index(caracter)
+            result += abecedario[(posicion+clave)%len(abecedario)]
+
+    return result
